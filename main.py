@@ -24,9 +24,9 @@ travel_chain = travel_prompt | gemini_model
 
 import streamlit as st
 
-st.header("Travel Itenary Creator")
+st.header("ᯓ  ✈︎ Travel Itenary Creator")
 
-st.subheader("Your Personal Travel Itenary Generator ")
+st.subheader("✈️ Your Personal Travel Itenary Generator ")
 
 city_1 = st.text_input("From City")
 city_2 = st.text_input("To City")
