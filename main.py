@@ -113,17 +113,17 @@ with col2:
             mime="text/plain",
         )
 # Features in This Code
-✅ Scrollable Output Box
+ Scrollable Output Box
 
 height: 300px; overflow-y: auto; ensures the output is scrollable.
-✅ Print Button
+ Print Button
 
 Uses JavaScript (printDiv()) to print only the itinerary content.
 Clicking the "🖨 Print Itinerary" button opens the print dialog.
-✅ Download Button
+ Download Button
 
 Creates a TXT file dynamically with the itinerary content.
-Clicking "📥 Download Itinerary" saves the file locally.
+Clicking " Download Itinerary" saves the file locally.
 
     
     
