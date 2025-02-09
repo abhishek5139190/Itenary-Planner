@@ -15,7 +15,7 @@ travel_template = "I am travelling from {city_1} to {city_2}  generate me a {day
 travel_prompt = PromptTemplate(template = travel_template, input_variables = ['city_1', 'city_2', 'day'])
 
 # Initialize Google's Gemini model
-gemini_model = ChatGoogleGenerativeAI(model = ""gemini-2.0-flash-thinking-exp-01-21")
+gemini_model = ChatGoogleGenerativeAI(model = "gemini-2.0-flash-thinking-exp-01-21")
 
 
 # Create LLM chain using the prompt template and model
