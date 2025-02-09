@@ -22,6 +22,7 @@ gemini_model = ChatGoogleGenerativeAI(model = "gemini-2.0-flash-thinking-exp-01-
 travel_chain = travel_prompt | gemini_model
 
 
+''' 
 import streamlit as st
 
 st.header(" ✈ Travel Itenary Creator")
@@ -44,5 +45,37 @@ if st.button("Create"):
 
 # with col2:
    # st.subheader("📋 Your Travel Itenary")
+'''
+import streamlit as st
+
+st.header("✈ Travel Itinerary Creator")
+st.subheader("🧳 Your Personal Travel Itinerary Generator")
+
+# Creating two columns
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader("Enter Travel Details")
+    city_1 = st.text_input("From City")
+    city_2 = st.text_input("To City")
+
+    day = st.number_input("Number of days", min_value=1, max_value=10, value=1, step=1)
+
+    mode = st.selectbox(
+        "Traveling Via",
+        ("Train", "Aeroplane", "Bus", "Road"),
+        index=None,
+        placeholder="Select travel medium",
+    )
+
+    create_button = st.button("Create")
+
+# Display results in the second column
+with col2:
+    st.subheader("Generated Itinerary")
+    if create_button:
+        # Assuming `travel_chain.invoke()` generates the travel plan
+        travel = travel_chain.invoke({"city_1": city_1, "city_2": city_2, "day": day, "mode": mode})
+        st.write(travel.content)
     
     
