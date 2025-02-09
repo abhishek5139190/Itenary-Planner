@@ -21,35 +21,18 @@ gemini_model = ChatGoogleGenerativeAI(model = "gemini-2.0-flash-thinking-exp-01-
 # Create LLM chain using the prompt template and model
 travel_chain = travel_prompt | gemini_model
 
-
-''' 
 import streamlit as st
 
-st.header(" ✈ Travel Itenary Creator")
-st.subheader("🧳 Your Personal Travel Itenary Generator ")
+# st.header("✈ Travel Itinerary Creator")
+# st.subheader("🧳 Your Personal Travel Itinerary Generator")
 
-city_1 = st.text_input("From City")
-city_2 = st.text_input("To City")
-
-day = st.number_input("Number of days", min_value = 1, max_value = 10, value = 1, step = 1)
-mode =  st.selectbox(
-    "Traveling Via",
-    ("Train", "Aeroplane", "Bus", "Road"),
-    index=None,
-    placeholder="Select travel medium",
+st.markdown(
+    """
+    <h1 style="text-align: center;">✈ Travel Itinerary Creator</h1>
+    <h3 style="text-align: center;">🧳 Your Personal Travel Itinerary Generator</h3>
+    """,
+    unsafe_allow_html=True
 )
-
-if st.button("Create"):
-    travel = travel_chain.invoke({"city_1" : city_1, "city_2" : city_2, "day" : day, "mode" : mode})
-    st.write(travel.content)
-
-# with col2:
-   # st.subheader("📋 Your Travel Itenary")
-'''
-import streamlit as st
-
-st.header("✈ Travel Itinerary Creator")
-st.subheader("🧳 Your Personal Travel Itinerary Generator")
 
 # Creating two columns
 col1, col2 = st.columns(2)
