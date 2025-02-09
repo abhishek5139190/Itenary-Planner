@@ -28,9 +28,9 @@ col1, col2 = st.columns(2)
 
 with col1:
 
-st.header(" ✈ Travel Itenary Creator")
+  st.header(" ✈ Travel Itenary Creator")
 
-st.subheader("🧳 Your Personal Travel Itenary Generator ")
+  st.subheader("🧳 Your Personal Travel Itenary Generator ")
 
 city_1 = st.text_input("From City")
 city_2 = st.text_input("To City")
