@@ -112,7 +112,7 @@ with col2:
             file_name=itinerary_filename,
             mime="text/plain",
         )
-💡 Features in This Code
+ Features in This Code
 ✅ Scrollable Output Box
 
 height: 300px; overflow-y: auto; ensures the output is scrollable.
