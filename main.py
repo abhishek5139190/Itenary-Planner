@@ -33,8 +33,10 @@ city_2 = st.text_input("To City")
 
 day = st.number_input("Number of days", min_value = 1, max_value = 10, value = 1, step = 1)
 mode =  st.selectbox(
-    "Traveling Mode",
+    "Traveling Via",
     ("Train", "Aeroplane", "Bus", "Road"),
+    index=None,
+    placeholder="Select travel medium",
 )
 
 if st.button("Create"):
