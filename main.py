@@ -67,12 +67,12 @@ with col2:
         # st.write(travel.content)
 
                 st.markdown(
-                 f"""
-                 <div style="height: 300px; overflow-y: auto; padding: 10px; border: 1px solid #ddd;">
-                     {travel.content}
-                 </div>
-                 """,
-                 unsafe_allow_html=True
-              )
+                     f"""
+                     <div style="height: 300px; overflow-y: auto; padding: 10px; border: 1px solid #ddd;">
+                         {travel.content}
+                     </div>
+                     """,
+                     unsafe_allow_html=True
+                  )
     
     
