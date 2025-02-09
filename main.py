@@ -7,31 +7,34 @@ import os
 
 os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 
-# Create prompt template for generating tweets
+# Create prompt template for generating a travel itinerary
 
-tweet_template = "Give me {number} tweets on {topic}"
+travel_template = " I am travelling from {city_1} to {city_2}  generate me a {day} days travel itenary along with travel plan like 
+                    how i can reach this {city_2} from {city_1} and places to visit "
 
-tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic'])
+
+travel_prompt = PromptTemplate(template = travel_template, input_variables = ['city_1', 'city_2', 'day'])
 
 # Initialize Google's Gemini model
-gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
+gemini_model = ChatGoogleGenerativeAI(model = ""gemini-2.0-flash-thinking-exp-01-21")
 
 
 # Create LLM chain using the prompt template and model
-tweet_chain = tweet_prompt | gemini_model
+travel_chain = travel_prompt | gemini_model
 
 
 import streamlit as st
 
-st.header("Tweet Generator - SATVIK")
+st.header("Travel Itenary Creator")
 
-st.subheader("Generate tweets using Generative AI")
+st.subheader("Your Personal Travel Itenary Generator ")
 
-topic = st.text_input("Topic")
+city_1 = st.text_input("From City")
+city_2 = st.text_input("To City")
 
-number = st.number_input("Number of tweets", min_value = 1, max_value = 10, value = 1, step = 1)
+day = st.number_input("Number of days", min_value = 1, max_value = 10, value = 1, step = 1)
 
-if st.button("Generate"):
-    tweets = tweet_chain.invoke({"number" : number, "topic" : topic})
-    st.write(tweets.content)
+if st.button("Create"):
+    travel = travel_chain.invoke({"city_1" : city_1, "city_2" : city_2, "day" : day})
+    st.write(travel.content)
     
