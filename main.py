@@ -24,6 +24,10 @@ travel_chain = travel_prompt | gemini_model
 
 import streamlit as st
 
+col1, col2 = st.columns(2)
+
+with col1:
+
 st.header(" ✈ Travel Itenary Creator")
 
 st.subheader("🧳 Your Personal Travel Itenary Generator ")
@@ -41,5 +45,8 @@ mode =  st.selectbox(
 
 if st.button("Create"):
     travel = travel_chain.invoke({"city_1" : city_1, "city_2" : city_2, "day" : day, "mode" : mode})
+
+with col1:
+    st.subheader("📋 Your Travel Itenary")
     st.write(travel.content)
     
