@@ -46,7 +46,7 @@ mode =  st.selectbox(
 if st.button("Create"):
     travel = travel_chain.invoke({"city_1" : city_1, "city_2" : city_2, "day" : day, "mode" : mode})
 
-with col1:
+with col2:
     st.subheader("📋 Your Travel Itenary")
     st.write(travel.content)
     
