@@ -58,7 +58,7 @@ with col2:
     st.subheader("Generated Itinerary")
 
     # Scrollable container for output
-    scrollable_container = st.container()
+    # scrollable_container = st.container()
 
     if create_button:
         # Assuming `travel_chain.invoke()` generates the travel plan
