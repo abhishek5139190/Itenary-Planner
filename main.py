@@ -24,9 +24,9 @@ travel_chain = travel_prompt | gemini_model
 
 import streamlit as st
 
-col1, col2 = st.columns(2)
+# col1, col2 = st.columns(2)
 
-with col1:
+# with col1:
 
   st.header(" ✈ Travel Itenary Creator")
 
@@ -47,7 +47,7 @@ if st.button("Create"):
     travel = travel_chain.invoke({"city_1" : city_1, "city_2" : city_2, "day" : day, "mode" : mode})
     st.write(travel.content)
 
-with col2:
-    st.subheader("📋 Your Travel Itenary")
+# with col2:
+   # st.subheader("📋 Your Travel Itenary")
     
     
