@@ -9,10 +9,10 @@ os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 
 # Create prompt template for generating a travel itinerary
 
-travel_template = "I am travelling from {city_1} to {city_2}  generate me a {day} days travel itenary along with travel plan like how i can reach this {city_2} from {city_1} and places to visit"
+travel_template = "I am travelling from {city_1} to {city_2}  generate me a {day} days travel itenary if i am travel through {mode} along with travel plan like how i can reach this {city_2} from {city_1} and places to visit"
 
 
-travel_prompt = PromptTemplate(template = travel_template, input_variables = ['city_1', 'city_2', 'day'])
+travel_prompt = PromptTemplate(template = travel_template, input_variables = ['city_1', 'city_2', 'day', 'mode'])
 
 # Initialize Google's Gemini model
 gemini_model = ChatGoogleGenerativeAI(model = "gemini-2.0-flash-thinking-exp-01-21")
@@ -32,8 +32,12 @@ city_1 = st.text_input("From City")
 city_2 = st.text_input("To City")
 
 day = st.number_input("Number of days", min_value = 1, max_value = 10, value = 1, step = 1)
+mode =  st.selectbox(
+    "Traveling Mode",
+    ("Train", "Aeroplane", "Bus", "Road"),
+)
 
 if st.button("Create"):
-    travel = travel_chain.invoke({"city_1" : city_1, "city_2" : city_2, "day" : day})
+    travel = travel_chain.invoke({"city_1" : city_1, "city_2" : city_2, "day" : day, "mode" : mode})
     st.write(travel.content)
     
