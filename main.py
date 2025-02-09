@@ -53,26 +53,22 @@ with col1:
 
     create_button = st.button("Create")
 
-# Display results in the second column
+# Display results in the second column with a scrollable container
 with col2:
     st.subheader("Generated Itinerary")
 
-    # Scrollable container for output
-    # scrollable_container = st.container()
-
     if create_button:
-        # Assuming `travel_chain.invoke()` generates the travel plan
+        # Simulating a long text output
         travel = travel_chain.invoke({"city_1": city_1, "city_2": city_2, "day": day, "mode": mode})
 
-        # st.write(travel.content)
-
-                st.markdown(
-                     f"""
-                     <div style="height: 300px; overflow-y: auto; padding: 10px; border: 1px solid #ddd;">
-                         {travel.content}
-                     </div>
-                     """,
-                     unsafe_allow_html=True
-                  )
+        # Ensure text is inside a scrollable container
+        st.markdown(
+            f"""
+            <div style="height: 300px; overflow-y: auto; padding: 10px; border: 1px solid #ddd;">
+                {travel.content}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
     
     
