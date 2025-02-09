@@ -61,69 +61,14 @@ with col2:
     if create_button:
         # Simulating a long text output
         travel = travel_chain.invoke({"city_1": city_1, "city_2": city_2, "day": day, "mode": mode})
-        itinerary_content = travel.content  # Store content for printing and downloading
 
-        # Scrollable container with text
+        # Ensure text is inside a scrollable container
         st.markdown(
             f"""
-            <div id="print-content" style="
-                width: 175%;  
-                height: 600px; 
-                overflow-y: auto; 
-                padding: 12px; 
-                border: 1px solid #660600; 
-                background-color: #c7c7c7;
-                border-radius: 8px;
-            ">
-                {itinerary_content}
+            <div style="height: 700px; width: 150%; overflow-y: auto; padding: 10px; border: 1px solid #ddd;">
+                {travel.content}
             </div>
             """,
             unsafe_allow_html=True
         )
-
-        # Print Button (JavaScript)
-        st.markdown(
-            """
-            <button onclick="printDiv()" style="margin: 10px; padding: 8px 12px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                🖨 Print Itinerary
-            </button>
-
-            <script>
-                function printDiv() {
-                    var divContents = document.getElementById("print-content").innerHTML;
-                    var a = window.open('', '', 'height=500, width=800');
-                    a.document.write('<html>');
-                    a.document.write('<body >');
-                    a.document.write(divContents);
-                    a.document.write('</body></html>');
-                    a.document.close();
-                    a.print();
-                }
-            </script>
-            """,
-            unsafe_allow_html=True
-        )
-
-        # Download Button
-        itinerary_filename = "itinerary.txt"
-        st.download_button(
-            label="📥 Download Itinerary",
-            data=itinerary_content,
-            file_name=itinerary_filename,
-            mime="text/plain",
-        )
-# Features in This Code
- Scrollable Output Box
-
-height: 300px; overflow-y: auto; ensures the output is scrollable.
- Print Button
-
-Uses JavaScript (printDiv()) to print only the itinerary content.
-Clicking the "🖨 Print Itinerary" button opens the print dialog.
- Download Button
-
-Creates a TXT file dynamically with the itinerary content.
-Clicking " Download Itinerary" saves the file locally.
-
-    
     
