@@ -65,7 +65,7 @@ with col2:
         # Ensure text is inside a scrollable container
         st.markdown(
             f"""
-            <div style="height: 500px; width: 120%; overflow-y: auto; padding: 10px; background-color: #f9f9f9; border: 1px solid #f9f9f9;">
+            <div style="height: 500px; width: 100%; overflow-y: auto; padding: 10px; background-color: #f9f9f9; border: 1px solid #f9f9f9;">
                 {travel.content}
             </div>
             """,
