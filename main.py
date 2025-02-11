@@ -29,7 +29,7 @@ import streamlit as st
 st.markdown(
     """
     <h1 style="text-align: center;">✈ Travel Itinerary Creator</h1>
-    <h3 style="text-align: center;">🧳 Your Personal Travel Itinerary Generator</h3>
+    <h3 style="text-align: center;">🧳 Your Personal Travel Itinerary Planner</h3>
     """,
     unsafe_allow_html=True
 )
@@ -51,7 +51,7 @@ with col1:
         placeholder="Select travel medium",
     )
 
-    create_button = st.button("Create")
+    create_button = st.button("Create Plan")
 
 # Display results in the second column with a scrollable container
 # Display results in the second column with a scrollable container
