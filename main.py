@@ -51,7 +51,7 @@ with col1:
         placeholder="Select travel medium",
     )
 
-    create_button = st.button("Create Plan")
+    create_button = st.button("Create Travel Plan")
 
 # Display results in the second column with a scrollable container
 # Display results in the second column with a scrollable container
